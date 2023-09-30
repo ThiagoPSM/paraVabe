@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package sistemas.pruebataller.persistence;
 
 import java.io.Serializable;
@@ -13,20 +9,16 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import sistemas.pruebataller.model.Medico;
+import sistemas.pruebataller.model.Paciente;
 import sistemas.pruebataller.persistence.exceptions.NonexistentEntityException;
 import sistemas.pruebataller.persistence.exceptions.PreexistingEntityException;
 
-/**
- *
- * @author Deian
- */
-public class MedicoJpaController implements Serializable {
+public class PacienteJpaController implements Serializable {
 
-    public MedicoJpaController(EntityManagerFactory emf) {
+    public PacienteJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    public MedicoJpaController() {
+    public PacienteJpaController() {
         emf = Persistence.createEntityManagerFactory("pruebaTallerPU");
     }
     private EntityManagerFactory emf = null;
@@ -35,16 +27,16 @@ public class MedicoJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Medico medico) throws PreexistingEntityException, Exception {
+    public void create(Paciente paciente) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(medico);
+            em.persist(paciente);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findMedico(medico.getDni()) != null) {
-                throw new PreexistingEntityException("Medico " + medico + " already exists.", ex);
+            if (findPaciente(paciente.getDni()) != null) {
+                throw new PreexistingEntityException("Paciente " + paciente + " already exists.", ex);
             }
             throw ex;
         } finally {
@@ -54,19 +46,19 @@ public class MedicoJpaController implements Serializable {
         }
     }
 
-    public void edit(Medico medico) throws NonexistentEntityException, Exception {
+    public void edit(Paciente paciente) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            medico = em.merge(medico);
+            paciente = em.merge(paciente);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = medico.getDni();
-                if (findMedico(id) == null) {
-                    throw new NonexistentEntityException("The medico with id " + id + " no longer exists.");
+                int id = paciente.getDni();
+                if (findPaciente(id) == null) {
+                    throw new NonexistentEntityException("The paciente with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -82,14 +74,14 @@ public class MedicoJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Medico medico;
+            Paciente paciente;
             try {
-                medico = em.getReference(Medico.class, id);
-                medico.getDni();
+                paciente = em.getReference(Paciente.class, id);
+                paciente.getDni();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The medico with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The paciente with id " + id + " no longer exists.", enfe);
             }
-            em.remove(medico);
+            em.remove(paciente);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -98,19 +90,19 @@ public class MedicoJpaController implements Serializable {
         }
     }
 
-    public List<Medico> findMedicoEntities() {
-        return findMedicoEntities(true, -1, -1);
+    public List<Paciente> findPacienteEntities() {
+        return findPacienteEntities(true, -1, -1);
     }
 
-    public List<Medico> findMedicoEntities(int maxResults, int firstResult) {
-        return findMedicoEntities(false, maxResults, firstResult);
+    public List<Paciente> findPacienteEntities(int maxResults, int firstResult) {
+        return findPacienteEntities(false, maxResults, firstResult);
     }
 
-    private List<Medico> findMedicoEntities(boolean all, int maxResults, int firstResult) {
+    private List<Paciente> findPacienteEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Medico.class));
+            cq.select(cq.from(Paciente.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -122,20 +114,20 @@ public class MedicoJpaController implements Serializable {
         }
     }
 
-    public Medico findMedico(int id) {
+    public Paciente findPaciente(int id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Medico.class, id);
+            return em.find(Paciente.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getMedicoCount() {
+    public int getPacienteCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Medico> rt = cq.from(Medico.class);
+            Root<Paciente> rt = cq.from(Paciente.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

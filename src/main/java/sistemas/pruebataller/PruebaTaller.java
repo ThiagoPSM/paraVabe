@@ -13,19 +13,19 @@ public class PruebaTaller {
     public static void main(String[] args) throws Exception {
         PersistenceController controller = new PersistenceController();
         
-//        Medico med = controller.obtenerMedico(1547932);
-//        Triage t = controller.obtenerTriage(1);
+//        Medico med = new Medico(12345678, "Juan Perez", new Date(1981, 1, 4), 245, "Cardiología");
+//        controller.crearMedico(med);
+//        Medico med = controller.obtenerMedico(12345678);
+//        
+//        Triage t = new Triage(1, 1, med);
 //        System.out.println(t);
-//        med.setTriage(controller.obtenerTriages());
+//        controller.crearTriage(t);
+//        med.setTriage(controller.triagePorMedico(med.getDni()));
 //        System.out.println(med.getTriage());
-        Persona p1  = controller.obtenerPersona(32165498);
-        Persona pac1 = controller.obtenerPersona(12345678);
+//        System.err.println(controller.obtenerTriages());
+//        System.err.println(controller.triagePorMedico(12345678));
+
+        Persona p1 = controller.obtenerPersona(5476);
         
-        System.out.println(p1);
-        System.out.println(pac1);
-        for(Medico m : controller.obtenerMedicos()){
-            m.setTriage(controller.obtenerTriages());
-            System.out.println(m.getTriage());
-        }
     }
 }

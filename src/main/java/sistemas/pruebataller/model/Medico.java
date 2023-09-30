@@ -18,7 +18,7 @@ import sistemas.pruebataller.persistence.PersistenceController;
 public class Medico extends Persona implements Serializable{
     private int matricula;
     private String especialidad;
-    @OneToMany (mappedBy = "medico")
+    @OneToMany
     private ArrayList<Triage> triage;
 
     public Medico(int dni, String nombre, Date fechaNac,int matricula, String especialidad) {
@@ -39,14 +39,6 @@ public class Medico extends Persona implements Serializable{
         super();
         this.triage = new ArrayList<>();
     }
-
-//    public int getMatricula() {
-//        return matricula;
-//    }
-//
-//    public void setMatricula(int matricula) {
-//        this.matricula = matricula;
-//    }
     
     public void realizarTriage(int respiracion, int pulso){
         Triage t = new Triage(respiracion, pulso, this);

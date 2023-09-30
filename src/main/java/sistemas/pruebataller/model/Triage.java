@@ -18,18 +18,18 @@ import lombok.ToString;
 @Entity
 public class Triage implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private NivelTriage color;
     private int respiracion;
     private int pulso;
-    @ManyToOne
-    private Medico medico;
+//    @ManyToOne
+    private int medico_dni;
 
     public Triage(int respiracion, int pulso, Medico medico) {
         this.respiracion = respiracion;
         this.pulso = pulso;
-        this.medico = medico;
+        this.medico_dni = medico.getDni();
         
         int suma = respiracion + pulso;
         switch(suma/5){

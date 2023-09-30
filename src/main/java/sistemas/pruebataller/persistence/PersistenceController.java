@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import sistemas.pruebataller.model.Medico;
+import sistemas.pruebataller.model.Paciente;
 import sistemas.pruebataller.model.Persona;
 import sistemas.pruebataller.model.Triage;
 import sistemas.pruebataller.persistence.exceptions.NonexistentEntityException;
@@ -12,6 +13,7 @@ import sistemas.pruebataller.persistence.exceptions.NonexistentEntityException;
 public class PersistenceController {
     MedicoJpaController medicoController = new MedicoJpaController();
     PersonaJpaController personaController = new PersonaJpaController();
+    PacienteJpaController pacienteController = new PacienteJpaController();
     TriageJpaController triageController = new TriageJpaController();
     
     //Persona
@@ -62,8 +64,16 @@ public class PersistenceController {
     public Medico obtenerMedico(int dni){
         Medico med = medicoController.findMedico(dni);
         med.setTriage(triagePorMedico(dni));
-//        med.setTriage(new ArrayList());
         return med;
+    }
+    
+    //Paciente
+    public ArrayList<Paciente> obtenerPacientes(){
+        return new ArrayList(pacienteController.findPacienteEntities());
+    }
+    
+    public Paciente obtenerPaciente(int dni){
+        return pacienteController.findPaciente(dni);
     }
     
     //Triage
@@ -76,10 +86,7 @@ public class PersistenceController {
     }
     
     public Triage obtenerTriage(int id){
-        Triage t = triageController.findTriage(id);
-//        t.setMedico(obtenerMedico(t.getMedico().getDni()));
-//        t.getMedico().setTriage(new ArrayList());
-        return t;
+        return triageController.findTriage(id);
     }
     
     public ArrayList<Triage> obtenerTriages(){
@@ -87,12 +94,11 @@ public class PersistenceController {
     }
     
     public ArrayList<Triage> triagePorMedico(int dni){
-        ArrayList<Triage> lista = new ArrayList<>();
-        for(Triage t : triageController.findTriageEntities()){
-//            if(t.getMedico().getDni() == dni){
-////                t.setMedico(medico);
-//                lista.add(t);
-//            }
+        ArrayList<Triage> lista = new ArrayList();
+        for(Triage t : obtenerTriages()){
+            if(t.getMedico_dni()== dni){
+                lista.add(t);
+            }
         }
         return lista;
     }
