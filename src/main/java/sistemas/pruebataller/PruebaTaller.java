@@ -26,6 +26,13 @@ public class PruebaTaller {
 //        System.err.println(controller.triagePorMedico(12345678));
 
         Persona p1 = controller.obtenerPersona(5476);
-        
+//        Paciente p2 = new Paciente(5479136, "Pedro", new Date(), p1);
+//        Paciente p3 = new Paciente(5869536, "Juana", new Date(), p1);
+        Persona p2 = controller.obtenerPersona(5479136);
+        Persona p3 = controller.obtenerPersona(5869536);
+        System.out.println(p2);
+        p3.setFechaNac(new Date(2015 - 1900, 7, 12));
+        System.out.println(p3.getFechaNac());
+//        controller.editarPersona(p3);
     }
 }
