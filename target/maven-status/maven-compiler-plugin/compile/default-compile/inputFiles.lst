@@ -1,0 +1,13 @@
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\model\NivelTriage.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\model\Triage.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\persistence\TriageJpaController.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\persistence\PersonaJpaController.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\model\Paciente.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\persistence\exceptions\IllegalOrphanException.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\model\Medico.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\PruebaTaller.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\persistence\exceptions\PreexistingEntityException.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\persistence\MedicoJpaController.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\persistence\exceptions\NonexistentEntityException.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\model\Persona.java
+D:\Users\Deian\Documents\NetBeansProjects\pruebaTaller\src\main\java\sistemas\pruebataller\persistence\PersistenceController.java

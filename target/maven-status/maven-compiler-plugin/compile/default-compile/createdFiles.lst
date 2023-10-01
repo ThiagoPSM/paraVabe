@@ -1,0 +1,17 @@
+sistemas\pruebataller\persistence\exceptions\IllegalOrphanException.class
+sistemas\pruebataller\persistence\TriageJpaController.class
+sistemas\pruebataller\persistence\PersonaJpaController.class
+sistemas\pruebataller\model\Paciente.class
+sistemas\pruebataller\model\Medico.class
+sistemas\pruebataller\model\Paciente_.class
+sistemas\pruebataller\persistence\exceptions\NonexistentEntityException.class
+sistemas\pruebataller\persistence\PersistenceController.class
+sistemas\pruebataller\persistence\exceptions\PreexistingEntityException.class
+sistemas\pruebataller\model\Persona_.class
+sistemas\pruebataller\model\NivelTriage.class
+sistemas\pruebataller\model\Triage.class
+sistemas\pruebataller\model\Triage_.class
+sistemas\pruebataller\persistence\MedicoJpaController.class
+sistemas\pruebataller\PruebaTaller.class
+sistemas\pruebataller\model\Medico_.class
+sistemas\pruebataller\model\Persona.class
