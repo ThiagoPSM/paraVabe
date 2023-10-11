@@ -1,11 +1,11 @@
-package sistemas.tallerpoo;
+package Main;
 
 import java.util.ArrayList;
 import java.util.Date;
-import sistemas.tallerpoo.clasesLogicas.Persona;
-import sistemas.tallerpoo.clasesLogicas.Gestor;
-import sistemas.tallerpoo.clasesLogicas.Rol;
-import sistemas.tallerpoo.clasesLogicas.SectorTrabajo;
+import ClaseLogicas.Persona;
+import ClaseLogicas.Gestor;
+import ClaseLogicas.Rol;
+import ClaseLogicas.SectorTrabajo;
 
 /**
  *

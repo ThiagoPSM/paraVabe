@@ -1,18 +1,14 @@
-package sistemas.tallerpoo.clasesLogicas;
+package ClaseLogicas;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- *
- * @author Deian
- */
+
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-public class Rol {
+public class Especialidad {
     private String nombre;
+    
 }

@@ -1,4 +1,4 @@
-package sistemas.tallerpoo.clasesLogicas;
+package ClaseLogicas;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,9 +8,10 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ResultadosEstudios {
-    private String tipoEstudios;
+public class HistoriaClinica {
     private Date fecha;
     private Date hora;
-    private String informe;
+    private String diagnostico;
+    private String lugar;
+    private String diagnosticoClinico;   
 }

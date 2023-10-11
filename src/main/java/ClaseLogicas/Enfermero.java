@@ -1,4 +1,4 @@
-package sistemas.tallerpoo.clasesLogicas;
+package ClaseLogicas;
 
 
 import lombok.Getter;
