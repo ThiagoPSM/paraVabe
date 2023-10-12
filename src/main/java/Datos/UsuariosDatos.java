@@ -101,10 +101,6 @@ public class UsuariosDatos {
         {
             JOptionPane.showMessageDialog(null, "usuario o contraseña incorrectas");
         }
-           return bandera;    
+        return bandera;    
     }
-    
-    
-    
-    
 }
