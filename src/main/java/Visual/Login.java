@@ -5,6 +5,7 @@
 package Visual;
 
 import ClaseLogicas.Usuario;
+import Datos.UsuariosDatos;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -113,27 +114,12 @@ public class Login extends javax.swing.JFrame {
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         // TODO add your handling code here:
-        Usuario user;
-        String[] datos;
-        boolean c=false;
-        try(Scanner sc = new Scanner(new File("./Usuarios.csv"))){
-            String contra = String.valueOf(txtContraseña.getPassword());
-            while(sc.hasNextLine()){
-                datos = sc.nextLine().split(",");
-                user = new Usuario(datos[0],datos[1],"");
-                if(user.getNombreUusuario().equals(txtUsuario.getText()) && user.getContraseñaUsuario().equals(contra))
-                {
-                 JOptionPane.showMessageDialog(null, "usuario ingresado correcto");
-                 c = true;
-                 break;
-                }
-            }
-            
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        if(c==false){
-            JOptionPane.showMessageDialog(null, "usuario incorrecto");
+        UsuariosDatos user = new UsuariosDatos();
+        Principal prin = new Principal();
+        if(user.controlInicioSesion(txtUsuario, txtContraseña))
+        {
+            this.dispose();
+            prin.setVisible(true);
         }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 

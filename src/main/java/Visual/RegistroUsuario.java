@@ -5,6 +5,7 @@
 package Visual;
 
 import ClaseLogicas.Usuario;
+import Datos.UsuariosDatos;
 import java.io.File;
 import java.io.FileWriter;
 import javax.swing.JOptionPane;
@@ -111,30 +112,12 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-         String contra = String.valueOf(txtContraseña.getPassword());
-         String repContra = String.valueOf(txtRepContra.getPassword());
-         
-         
-         if(contra.equals(repContra)){
-                
-         File f = new File("./Usuarios.csv");       
-         Usuario user = new Usuario(txtUsuario.getText(),contra, " ");
-         
-         try(FileWriter fw = new FileWriter(f,true)){
-             
-            fw.write(user.toCSV());
-            JOptionPane.showMessageDialog(null, "se registro con exito");
-            this.dispose(); 
-            
-         }catch(Exception e){
-             
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-         }else{
-             JOptionPane.showMessageDialog(null, "Las contraseñas no son iguales");
+         UsuariosDatos user = new UsuariosDatos();
+         if(user.Registrar(txtUsuario, txtContraseña, txtRepContra))
+         {
+          this.dispose(); 
          }
-  
-        
+         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**

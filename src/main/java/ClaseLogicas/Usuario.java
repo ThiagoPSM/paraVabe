@@ -15,6 +15,6 @@ public class Usuario {
     private String rol;
     
     public String toCSV(){
-        return this.nombreUusuario+","+this.contraseñaUsuario+","+this.rol;              
+        return this.nombreUusuario+","+this.contraseñaUsuario+","+this.rol+"\n";              
     }
 }
